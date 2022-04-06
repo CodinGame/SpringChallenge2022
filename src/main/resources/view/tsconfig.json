@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": false,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "target": "es6",
+    "outDir": "graphics",
+    "types": ["pixi.js"]
+  },
+  "exclude": [
+    "node_modules",
+    "config.js",
+    "demo.js",
+    "graphics",
+    "event",
+    "endscreen",
+    "tooltip",
+    "graphics_bak",
+    ".vscode"
+  ]
+}

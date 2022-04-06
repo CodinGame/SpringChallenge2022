@@ -1,0 +1,26 @@
+read baseX:int baseY:int
+read heroesPerPlayer:int
+gameloop
+loop 2 read health:int mana:int
+read entityCount:int
+loop entityCount read id:int type:int x:int y:int shieldLife:int isControlled:int health:int vx:int vy:int nearBase:int threatFor:int
+loop heroesPerPlayer write WAIT
+
+INPUT
+heroesPerPlayer: Always 3
+baseX: The corner of the map representing your base
+health: Your base health
+mana: Ignore in the first league; Spend ten mana to cast a spell 
+entityCount: Amount of heros and monsters you can see
+id: Unique identifier
+type: 0=monster, 1=your hero, 2=opponent hero
+x: Position of this entity 
+shieldLife: Ignore for this league; Count down until shield spell fades 
+isControlled: Ignore for this league; Equals 1 when this entity is under a control spell
+health: Remaining health of this monster
+vx: Trajectory of this monster
+nearBase: 0=monster with no target yet, 1=monster targeting a base
+threatFor: Given this monster's trajectory, is it a threat to 1=your base, 2=your opponent's base, 0=neither
+
+OUTPUT
+In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
