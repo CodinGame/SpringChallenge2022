@@ -119,6 +119,9 @@ class Player
                     Console.WriteLine("WAIT");
                 }
             }
+
+            // Write an action using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
         }
     }
 }
