@@ -2,24 +2,33 @@ import System.IO
 import Control.Monad
 import Debug.Trace
 
-data Entity =
-  Entity
+data Entity 
+    = Monster EntityData MonsterData
+    | MyHero EntityData
+    | EnemyHero EntityData
+  deriving Show
+
+data EntityData =
+  EntityData
     { entityId :: Int
-    , entityType :: EntityType
     , entityX :: Int
     , entityY :: Int
     , entityShieldLife :: Int
     , entityIsControlled :: Bool
-    , entityHealth :: Int
-    , entityVx :: Int
-    , entityVy :: Int
-    , entityNearBase :: Bool
-    , entityThreatFor :: Int
     }
-    deriving Show
+  deriving Show
 
-data EntityType = Monster | MyHero | EnemyHero deriving (Show, Eq, Enum)
-data EntityThreatFor = Neutral | MyBase | EnemyBase deriving (Show, Eq, Enum)
+data MonsterData =
+  MonsterData
+    { monsterHealth :: Int
+    , monsterVx :: Int
+    , monsterVy :: Int
+    , monsterNearBase :: Bool
+    , monsterThreatFor :: ThreatFor
+    }
+  deriving Show
+
+data ThreatFor = Neutral | MyBase | EnemyBase deriving (Show, Eq, Enum)
 
 data Command = WAIT | MOVE Int Int | SPELL deriving Show
 
@@ -31,7 +40,14 @@ readInts = map read . words <$> getLine
 
 makeEntity :: [Int] -> Entity
 makeEntity [id_, type_, x, y, shieldLife, isControlled, health, vx, vy, nearBase, threatFor] =
-    Entity id_ (toEnum type_) x y shieldLife (isControlled == 1) health vx vy (nearBase == 1) (toEnum threatFor)
+    let
+        properties = EntityData id_ x y shieldLife (isControlled == 1)
+        monster = MonsterData health vx vy (nearBase == 1) (toEnum threatFor)
+    in
+    case type_ of
+        0 -> Monster properties monster
+        1 -> MyHero properties
+        2 -> EnemyHero properties
 
 main :: IO ()
 main = do
@@ -46,7 +62,7 @@ gameLoop heroesPerPlayer = do
     [enemyHealth, enemyMana] <- readInts
     entityCount <- readInt
     entities <- replicateM entityCount (makeEntity <$> readInts)
-    -- traceShowM entities
+    -- mapM_ traceShowM entities
     replicateM heroesPerPlayer $ do
         putStrLn $ show WAIT
     gameLoop heroesPerPlayer
