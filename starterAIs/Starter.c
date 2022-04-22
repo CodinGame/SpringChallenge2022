@@ -5,23 +5,23 @@
 #include <math.h>
 
 typedef enum    T_ENTITY_TYPE {
-				ENTITY_TYPE_MONSTER = 0,
-				ENTITY_TYPE_MY_HERO = 1,
-				ENTITY_TYPE_OP_HERO = 2
+		ENTITY_TYPE_MONSTER = 0,
+		ENTITY_TYPE_MY_HERO = 1,
+		ENTITY_TYPE_OP_HERO = 2
 }               E_ENTITY_TYPE;
 
 typedef struct  t_entity {
-    int 		id;
-    int 		type;
-    int 		x;
-    int 		y;
-    int 		shield_life;
-    int 		is_controlled;
-    int 		health;
-    int 		vx;
-    int 		vy;
-    int 		near_base;
-    int 		threat_for;
+    int 	id;
+    int 	type;
+    int 	x;
+    int 	y;
+    int 	shield_life;
+    int 	is_controlled;
+    int 	health;
+    int 	vx;
+    int 	vy;
+    int 	near_base;
+    int 	threat_for;
 }               s_entity;
 
 
@@ -68,12 +68,12 @@ int main()
         int entity_count;
         scanf("%d", &entity_count);
 
-		//Keep track of how many monsters we've read
+	//Keep track of how many monsters we've read
         int nb_monsters = 0;
         s_entity *entities = malloc(sizeof(s_entity) * entity_count);
         s_entity **monsters = malloc(sizeof(s_entity*) * entity_count);
         s_entity *my_heroes[heroes_per_player];
-		s_entity *op_heroes[heroes_per_player];
+	s_entity *op_heroes[heroes_per_player];
 
         for (int i = 0; i < entity_count; i++) {
             //id: Unique identifier
@@ -98,7 +98,7 @@ int main()
             }
             
         }
-		//print every entities
+	//print every entities
         for (int i = 0; i < entity_count; i++) {
             dbg_print_entity(&(entities[i]));
         }
