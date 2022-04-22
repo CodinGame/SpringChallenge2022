@@ -9,7 +9,7 @@ loop heroesPerPlayer write WAIT
 INPUT
 heroesPerPlayer: Always 3
 baseX: The corner of the map representing your base
-health: Your base health
+health: Each player's base health
 mana: Ignore in the first league; Spend ten mana to cast a spell 
 entityCount: Amount of heros and monsters you can see
 id: Unique identifier

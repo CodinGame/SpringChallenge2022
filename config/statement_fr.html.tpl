@@ -575,6 +575,8 @@ text-align: left;">
         <var>baseX</var> et
         <var>baseY</var> pour les coordonnées de votre base. La base adverse se situe à l'opposé de la zone de jeu.
         <br>
+        <span class="statement-lineno">Ligne 2:</span> l'entier <var>heroesPerPlayer</var> qui vaut toujours <const>3</const> pour le nombre de héros par joueur.
+        <br>
       </div>
     </div>
     <!-- Protocol block -->

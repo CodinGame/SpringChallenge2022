@@ -589,6 +589,8 @@ text-align: left;">
         <var>baseX</var> and
         <var>baseY</var> for the coordinates of your base. The enemy base will be at the opposite side of the map.
         <br>
+        <span class="statement-lineno">Line 2:</span> the integer <var>heroesPerPlayer</var> which is always <const>3</const>.
+        <br>
       </div>
     </div>
     <!-- Protocol block -->
