@@ -331,7 +331,7 @@ text-align: left;">
       </div>
       <div class="statement-example-container">
         <div class="statement-example">
-          <img src="https://static.codingame.com/servlet/fileservlet?id=20669980430629" />
+          <img src="/servlet/fileservlet?id=20669980430629" />
           <div class="legend">
             <div class="description">Il y a
               <const>2</const> monstres dans les
@@ -340,7 +340,7 @@ text-align: left;">
           </div>
         </div>
         <div class="statement-example">
-          <img src="https://static.codingame.com/servlet/fileservlet?id=20669992024930" />
+          <img src="/servlet/fileservlet?id=20669992024930" />
           <div class="legend">
             <div class="title">
               <action>SPELL WIND 6000 5000</action>
@@ -352,7 +352,7 @@ text-align: left;">
           </div>
         </div>
         <div class="statement-example">
-          <img src="https://static.codingame.com/servlet/fileservlet?id=20669974783504" />
+          <img src="/servlet/fileservlet?id=20669974783504" />
           <div class="legend">
             <div class="description">Les monstres avancent tous de
               <const>2200</const> dans la direction définie par le vecteur.
