@@ -19,16 +19,16 @@ enum ThreatType
 };
 struct Entity
 {
-	int ID = 0; // Unique identifier
+    int ID = 0; // Unique identifier
     EntityType Type = Monster; // 0=monster, 1=your hero, 2=opponent hero
-	int X = 0; // Position of this entity
-	int Y = 0;
-	int ShieldLife = 0; // Ignore for this league; Count down until shield spell fades
-	int IsControlled = 0; // Ignore for this league; Equals 1 when this entity is under a control spell
-	int Health = 0; // Remaining health of this monster
-	int TrajectoryX = 0; // Trajectory of this monster
-	int TrajectoryY = 0;
-	int NearBase = 0; // 0=monster with no target yet, 1=monster targeting a base
+    int X = 0; // Position of this entity
+    int Y = 0;
+    int ShieldLife = 0; // Ignore for this league; Count down until shield spell fades
+    int IsControlled = 0; // Ignore for this league; Equals 1 when this entity is under a control spell
+    int Health = 0; // Remaining health of this monster
+    int TrajectoryX = 0; // Trajectory of this monster
+    int TrajectoryY = 0;
+    int NearBase = 0; // 0=monster with no target yet, 1=monster targeting a base
     ThreatType Threat = Neither; // Given this monster's trajectory, is it a threat to 1=your base, 2=your opponent's base, 0=neither
 };
 
@@ -56,10 +56,9 @@ bool ClosestToBase(Entity* aEntity1, Entity* aEntity2)
 
 int main()
 {
-    
     std::cin >> Base.x >> Base.y; std::cin.ignore();
-    int heroes_per_player; // Always 3
-    std::cin >> heroes_per_player; std::cin.ignore();
+    int heroesPerPlayer; // Always 3
+    std::cin >> heroesPerPlayer; std::cin.ignore();
 
     while (true)
     {
@@ -70,11 +69,11 @@ int main()
             std::cin >> health >> mana; std::cin.ignore();
         }
 
-        int entity_count; // Amount of heros and monsters you can see
-        std::cin >> entity_count; std::cin.ignore();
+        int entityCount; // Amount of heros and monsters you can see
+        std::cin >> entityCount; std::cin.ignore();
 
         std::vector<Entity*> ClosestEnemies;
-        for (int i = 0; i < entity_count; i++)
+        for (int i = 0; i < entityCount; i++)
         {
             Entity entity;
             int type = 0;
@@ -94,13 +93,13 @@ int main()
         // Sort the enemies to who is closest to the base
         std::sort(ClosestEnemies.begin(), ClosestEnemies.end(), ClosestToBase);
 
-        for (int i = 0; i < heroes_per_player; i++) {
+        for (int i = 0; i < heroesPerPlayer; i++) {
 
             if (ClosestEnemies.size() > i)
             {
                 Entity& closestEnemy = *ClosestEnemies[i];
-				// In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
-				std::cout << "MOVE " << closestEnemy.X << " " << closestEnemy.Y << std::endl;
+                // In the first league: MOVE <x> <y> | WAIT; In later leagues: | SPELL <spellParams>;
+                std::cout << "MOVE " << closestEnemy.X << " " << closestEnemy.Y << std::endl;
                 std::cerr << "DISTANCE: " << Distance(Base.x, Base.y, closestEnemy.X, closestEnemy.Y) << " Base: " << Base.x << ", " << Base.y << " Enemy: " << closestEnemy.X << ", " << closestEnemy.Y << std::endl;
             }
             else
