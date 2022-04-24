@@ -406,7 +406,7 @@ text-align: left;">
               </strong>
             </li>
             <!-- BEGIN level2 level3 level4 -->
-            <li>In case of a tie, you have gained the highest amount of <strong>wild mana</strong>: mana gained outside
+            <li>In case of a tie, you have gained the highest amount of <strong>wild mana</strong>: mana gained by your heroes when they are outside
               the radius of your
               <strong>base</strong>.
             </li>
