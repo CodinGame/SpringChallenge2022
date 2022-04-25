@@ -755,7 +755,7 @@ text-align: left;">
     <div class="blk">
       <div class="title">Contraintes</div>
       <div class="text">
-        Temps de réponse par tour ≤ <const>100</const>ms<br>
+        Temps de réponse par tour ≤ <const>50</const>ms<br>
         Temps de réponse au premier tour ≤ <const>1000</const>ms
       </div>
     </div>
