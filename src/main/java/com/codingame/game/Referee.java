@@ -141,12 +141,12 @@ public class Referee extends AbstractReferee {
 
         if (snapX < 0)
             snapX = 0;
-        if (snapX >= Configuration.MAP_WIDTH)
-            snapX = Configuration.MAP_WIDTH - 1;
+        if (snapX > Configuration.MAP_WIDTH)
+            snapX = Configuration.MAP_WIDTH;
         if (snapY < 0)
             snapY = 0;
-        if (snapY >= Configuration.MAP_HEIGHT)
-            snapY = Configuration.MAP_HEIGHT - 1;
+        if (snapY > Configuration.MAP_HEIGHT)
+            snapY = Configuration.MAP_HEIGHT;
         return new Vector(snapX, snapY);
     };
 
@@ -358,8 +358,8 @@ public class Referee extends AbstractReferee {
     }
 
     private Vector baseWallIntersection(Vector from, Vector to) {
-        int w = Configuration.MAP_WIDTH - 1;
-        int h = Configuration.MAP_HEIGHT - 1;
+        int w = Configuration.MAP_WIDTH;
+        int h = Configuration.MAP_HEIGHT;
         int baseRadius = Configuration.BASE_ATTRACTION_RADIUS;
         Vector intersection = null;
         if (to.getY() >= h) {
@@ -395,6 +395,7 @@ public class Referee extends AbstractReferee {
                     throw new ActionException("Not enough mana");
                 }
                 Optional<? extends GameEntity> targeted = allEntities.get()
+                	.filter(e -> insideVisibleMap(e.position))
                     .filter(other -> other.id == control.getTarget())
                     .findFirst();
 
@@ -432,6 +433,7 @@ public class Referee extends AbstractReferee {
                     throw new ActionException("Not enough mana");
                 }
                 Optional<? extends GameEntity> targeted = allEntities.get()
+                	.filter(e -> insideVisibleMap(e.position))
                     .filter(other -> other.id == control.getTarget())
                     .findFirst();
 
@@ -638,6 +640,12 @@ public class Referee extends AbstractReferee {
         // Reset mobs
         for (Mob mob : allMobs) {
             mob.reset();
+            
+            if (!mob.activeControls.isEmpty()) {            	
+            	Vector computedDestination = computeControlResult(mob, Configuration.MOB_MOVE_SPEED);
+            	Vector newSpeed = new Vector(mob.position, computedDestination);
+            	mob.setSpeed(newSpeed);
+            }
         }
 
         // Reset view info
@@ -658,6 +666,7 @@ public class Referee extends AbstractReferee {
 
     private <T extends GameEntity> Stream<T> getAllAround(GameEntity e, int range, Stream<T> stream) {
         return stream
+        	.filter(other -> insideVisibleMap(other.position))
             .filter(other -> other.position.inRange(e.position, range));
     }
 
@@ -798,7 +807,7 @@ public class Referee extends AbstractReferee {
         }
     }
 
-    private Vector computeControlResult(GameEntity e, int moveSpeed) {
+    private static Vector computeControlResult(GameEntity e, int moveSpeed) {
         return e.activeControls.stream()
             .map(v -> stepTo(e.position, v, moveSpeed))
             .reduce((a, b) -> a.add(b))
@@ -815,7 +824,7 @@ public class Referee extends AbstractReferee {
         }
     }
 
-    private Vector stepTo(Vector position, Vector destination, int speed) {
+    private static Vector stepTo(Vector position, Vector destination, int speed) {
         Vector v = new Vector(position, destination);
         Vector target;
         if (v.lengthSquared() <= speed * speed) {
@@ -921,7 +930,7 @@ public class Referee extends AbstractReferee {
                         }
                     }
                     // Am I outside the map?
-                    if (!insideMap(cur)) {
+                    if (!insideVisibleMap(cur)) {
                         mob.status = new MobStatus(WANDERING, null, turns);
                         stop = true;
                     }

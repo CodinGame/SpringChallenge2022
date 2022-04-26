@@ -42,7 +42,7 @@ text-align: left;">
   text-align: left;">
     <p><em>Vidéo d'introduction par <b>Mathis Hammel</b>: <a href="https://youtu.be/MyHjWftmMfQ" rel="noopener"
       target="_blank">https://youtu.be/MyHjWftmMfQ</a></em></p>
-    <!-- BEGIN level3 -->
+    <!-- BEGIN level3 level4 -->
     <p><em>Vidéo "Road to Silver" par <b>Mathis Hammel</b>: <a href="https://youtu.be/_y7Uua5wwsc" rel="noopener"
         target="_blank">https://youtu.be/_y7Uua5wwsc</a></em></p>
     <!-- END -->
@@ -478,7 +478,7 @@ text-align: left;">
           </li>
           <li>
             <p>
-              Les joueurs ne reçoivent pas les coordonnées des monstres situés en dehors de la carte.
+              Les joueurs ne reçoivent pas les coordonnées des monstres situés en dehors de la carte et ne peuvent pas leur lancer de sorts.
             </p>
           </li>
           <li>
