@@ -40,8 +40,12 @@ text-align: left;">
   margin-right: 15px;
   margin-bottom: 10px;
   text-align: left;">
-    <em>Vidéo d'introduction par <b>Mathis Hammel</b>: <a href="https://youtu.be/MyHjWftmMfQ" rel="noopener"
-      target="_blank">https://youtu.be/MyHjWftmMfQ</a></em>
+    <p><em>Vidéo d'introduction par <b>Mathis Hammel</b>: <a href="https://youtu.be/MyHjWftmMfQ" rel="noopener"
+      target="_blank">https://youtu.be/MyHjWftmMfQ</a></em></p>
+    <!-- BEGIN level3 -->
+    <p><em>Vidéo "Road to Silver" par <b>Mathis Hammel</b>: <a href="https://youtu.be/_y7Uua5wwsc" rel="noopener"
+        target="_blank">https://youtu.be/_y7Uua5wwsc</a></em></p>
+    <!-- END -->
   </div>
 
 
