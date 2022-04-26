@@ -70,6 +70,7 @@ class Game {
       3,
       0
     );
+    this.entities = [];
   }
 
   newTurn = (
