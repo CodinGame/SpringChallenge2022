@@ -47,7 +47,7 @@ text-align: left;">
     text-align: left;">
     <p><em>Introductory video by <b>Mathis Hammel</b>: <a href="https://youtu.be/MyHjWftmMfQ" rel="noopener"
         target="_blank">https://youtu.be/MyHjWftmMfQ</a></em></p>
-    <!-- BEGIN level3 -->
+    <!-- BEGIN level3 level4 -->
     <p><em>"Road to Silver" video by <b>Mathis Hammel</b>: <a href="https://youtu.be/_y7Uua5wwsc" rel="noopener"
         target="_blank">https://youtu.be/_y7Uua5wwsc</a></em></p>
     <!-- END -->
@@ -493,7 +493,7 @@ text-align: left;">
             <p>Using a spell against a shielded entity still costs mana.</p>
           </li>
           <li>
-            <p>Players are not given the coordinates of monsters outside the map.</p>
+            <p>Players are not given the coordinates of monsters outside the map and they cannot be targetted by spells.</p>
           </li>
           <li>
             <p>A monster can be pushed outside of the map, unless it is within a base radius, in which case it will will

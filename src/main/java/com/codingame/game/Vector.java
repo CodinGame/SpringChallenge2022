@@ -154,7 +154,7 @@ public class Vector {
     }
 
     public boolean withinBounds(double minx, double miny, double maxx, double maxy) {
-        return x >= minx && x < maxx && y >= miny && y < maxy;
+        return x >= minx && x <= maxx && y >= miny && y <= maxy;
     }
 
     public boolean isZero() {
