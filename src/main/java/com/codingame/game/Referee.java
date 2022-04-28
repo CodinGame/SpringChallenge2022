@@ -184,6 +184,8 @@ public class Referee extends AbstractReferee {
         Vector p = new Vector(xi, yi);
         if (xi < Math.min(x1, x2) || xi > Math.max(x1, x2)) return null;
         if (xi < Math.min(x3, x4) || xi > Math.max(x3, x4)) return null;
+        if (yi < Math.min(y1, y2) || yi > Math.max(y1, y2)) return null;
+        if (yi < Math.min(y3, y4) || yi > Math.max(y3, y4)) return null;
         return p;
     }
 
@@ -362,13 +364,13 @@ public class Referee extends AbstractReferee {
         int h = Configuration.MAP_HEIGHT;
         int baseRadius = Configuration.BASE_ATTRACTION_RADIUS;
         Vector intersection = null;
-        if (to.getY() >= h) {
+        if (to.getY() > h) {
             intersection = intersection(from.getX(), from.getY(), to.getX(), to.getY(), w - baseRadius, h, w, h);
         } else if (to.getY() < 0) {
             intersection = intersection(from.getX(), from.getY(), to.getX(), to.getY(), 0, 0, baseRadius, 0);
         }
         if (intersection == null) {
-            if (to.getX() >= w) {
+            if (to.getX() > w) {
                 intersection = intersection(from.getX(), from.getY(), to.getX(), to.getY(), w, h - baseRadius, w, h);
             } else if (to.getX() < 0) {
                 intersection = intersection(from.getX(), from.getY(), to.getX(), to.getY(), 0, 0, 0, baseRadius);
