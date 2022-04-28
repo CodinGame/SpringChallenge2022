@@ -388,7 +388,7 @@ text-align: left;">
               </strong>
             </li>
             <!-- BEGIN level2 level3 level4 -->
-            <li>En cas d'égalité, vous avez acquéri plus de <strong>wild mana</strong>: mana obtenu à l'extérieur du
+            <li>En cas d'égalité, vous avez acquéri plus de <strong>wild mana</strong>: mana obtenu par vos héros quand ils sont à l'extérieur du
               rayon de votre
               <strong>base</strong>.
             </li>
