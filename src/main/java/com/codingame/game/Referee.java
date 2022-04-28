@@ -646,7 +646,10 @@ public class Referee extends AbstractReferee {
             if (!mob.activeControls.isEmpty()) {            	
             	Vector computedDestination = computeControlResult(mob, Configuration.MOB_MOVE_SPEED);
             	Vector newSpeed = new Vector(mob.position, computedDestination);
-            	mob.setSpeed(newSpeed);
+
+            	if (!newSpeed.isZero()) {
+            		mob.setSpeed(newSpeed.normalize().mult(Configuration.MOB_MOVE_SPEED).truncate());
+            	}
             }
         }
 
