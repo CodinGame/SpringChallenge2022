@@ -496,7 +496,7 @@ text-align: left;">
             <p>Players are not given the coordinates of monsters outside the map and they cannot be targetted by spells.</p>
           </li>
           <li>
-            <p>A monster can be pushed outside of the map, unless it is within a base radius, in which case it will will
+            <p>A monster can be pushed outside of the map, unless it is within a base radius, in which case it will
               be moved no further than the border.</p>
           </li>
           <li>
