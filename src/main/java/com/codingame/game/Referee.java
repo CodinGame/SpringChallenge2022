@@ -6,6 +6,7 @@ import static java.util.stream.Collectors.toMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -285,7 +286,7 @@ public class Referee extends AbstractReferee {
     }
 
     private void doPush() {
-        Map<GameEntity, List<Vector>> directionMap = new HashMap<>();
+        Map<GameEntity, List<Vector>> directionMap = new LinkedHashMap<>();
 
         for (Hero hero : intentMap.get(ActionType.WIND)) {
             try {
