@@ -97,5 +97,6 @@ class Player {
                 }
             }
         }
+        in.close();
     }
 }
