@@ -128,6 +128,7 @@ class Player {
                 }
             }
         }
+        in.close();
     }
 
     private static boolean canWind(int mana) {
